@@ -5,7 +5,7 @@ import com.example.ms_customer_bnk.domain.model.Customer;
 import java.util.List;
 
 public interface ICustomerServicePort {
-    List<Customer> getFindAllCustomers();
+    List<Customer> findAllCustomers();
 
     Customer findCustomerById(Integer id);
 

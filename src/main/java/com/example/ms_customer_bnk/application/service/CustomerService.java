@@ -1,5 +1,6 @@
 package com.example.ms_customer_bnk.application.service;
 
+import com.example.ms_customer_bnk.application.exception.CustomerNotFoundException;
 import com.example.ms_customer_bnk.domain.model.Customer;
 import com.example.ms_customer_bnk.domain.port.in.ICustomerServicePort;
 import com.example.ms_customer_bnk.domain.port.out.ICustomerRepositoryPort;
@@ -14,13 +15,13 @@ public class CustomerService implements ICustomerServicePort {
     }
 
     @Override
-    public List<Customer> getFindAllCustomers() {
-        return this.customerRepositoryPort.getFindAllCustomers();
+    public List<Customer> findAllCustomers() {
+        return this.customerRepositoryPort.findAllCustomers();
     }
 
     @Override
     public Customer findCustomerById(Integer id) {
-        return this.customerRepositoryPort.findCustomerById(id);
+        return this.customerRepositoryPort.findCustomerById(id).orElseThrow(()->new CustomerNotFoundException("NO CUSTOMERS FOUND"));
     }
 
     @Override

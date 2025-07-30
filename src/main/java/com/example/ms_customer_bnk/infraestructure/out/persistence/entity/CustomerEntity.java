@@ -1,6 +1,12 @@
-package com.example.ms_customer_bnk.domain.model;
+package com.example.ms_customer_bnk.infraestructure.out.persistence.entity;
 
-public class Customer {
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tbl_adm_customer")
+public class CustomerEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String gender;
