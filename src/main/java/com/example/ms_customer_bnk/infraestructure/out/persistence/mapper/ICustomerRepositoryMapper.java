@@ -5,8 +5,7 @@ import com.example.ms_customer_bnk.infraestructure.out.persistence.entity.Custom
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface ICustomerMapper {
+public interface ICustomerRepositoryMapper {
     Customer toDomain(CustomerEntity customerEntity);
-
     CustomerEntity toEntity(Customer customer);
 }

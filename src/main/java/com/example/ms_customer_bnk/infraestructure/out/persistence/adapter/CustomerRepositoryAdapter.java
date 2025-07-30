@@ -3,7 +3,7 @@ package com.example.ms_customer_bnk.infraestructure.out.persistence.adapter;
 import com.example.ms_customer_bnk.domain.model.Customer;
 import com.example.ms_customer_bnk.domain.port.out.ICustomerRepositoryPort;
 import com.example.ms_customer_bnk.infraestructure.out.persistence.entity.CustomerEntity;
-import com.example.ms_customer_bnk.infraestructure.out.persistence.mapper.ICustomerMapper;
+import com.example.ms_customer_bnk.infraestructure.out.persistence.mapper.ICustomerRepositoryMapper;
 import com.example.ms_customer_bnk.infraestructure.out.persistence.repository.ICustomerRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,9 +14,9 @@ import java.util.Optional;
 public class CustomerRepositoryAdapter implements ICustomerRepositoryPort {
 
     private final ICustomerRepository customerRepository;
-    private final ICustomerMapper customerMapper;
+    private final ICustomerRepositoryMapper customerMapper;
 
-    public CustomerRepositoryAdapter(ICustomerRepository customerRepository, ICustomerMapper customerMapper) {
+    public CustomerRepositoryAdapter(ICustomerRepository customerRepository, ICustomerRepositoryMapper customerMapper) {
         this.customerRepository = customerRepository;
         this.customerMapper = customerMapper;
     }
@@ -48,6 +48,6 @@ public class CustomerRepositoryAdapter implements ICustomerRepositoryPort {
 
     @Override
     public void deleteCustomer(Integer id) {
-
+        this.customerRepository.deleteById(id);
     }
 }
